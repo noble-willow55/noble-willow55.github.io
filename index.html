@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网红黑料爆料_内容观察,行业深度解读平台</title>
+<meta name="description" content="网红黑料爆料官方网站是聚焦网络内容生态的观察与解读平台，以原创、专业、正版高清内容呈现行业动态，陪伴用户理性看待每一条爆料与讨论。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e2483c'/%3E%3Cpath d='M18 22h28v6H18zM18 34h20v6H18z' fill='%23fff'/%3E%3Ccircle cx='46' cy='38' r='5' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --hgx-ink:#151517;
+  --hgx-paper:#f6f5f2;
+  --hgx-red:#e2483c;
+  --hgx-red-dark:#b5332a;
+  --hgx-amber:#ffd166;
+  --hgx-gray:#6c6c72;
+  --hgx-line:#dedcd6;
+  --hgx-white:#ffffff;
+  --hgx-radius:14px;
+  --hgx-shadow:0 10px 30px rgba(21,21,23,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+  background:var(--hgx-paper);
+  color:var(--hgx-ink);
+  line-height:1.7;
+  font-size:16px;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+
+/* ===== sticky wrapper: notice + header ===== */
+.hgx-sticky{position:sticky;top:0;z-index:100}
+.hgx-notice{
+  background:var(--hgx-ink);
+  color:#f2f1ee;
+  font-size:13.5px;
+  padding:0 20px;
+  overflow:hidden;
+}
+.hgx-notice-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:14px;
+  height:40px;
+}
+.hgx-notice-tag{
+  flex:none;background:var(--hgx-red);color:#fff;
+  font-size:11.5px;font-weight:700;letter-spacing:.08em;
+  padding:2px 8px;border-radius:4px;
+}
+.hgx-notice-track{flex:1;overflow:hidden;white-space:nowrap}
+.hgx-notice-track span{display:inline-block;padding-right:60px;animation:hgx-scroll 26s linear infinite}
+@keyframes hgx-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.hgx-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hgx-line);
+}
+.hgx-header-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:22px;
+  padding:12px 20px;
+}
+.hgx-logo{display:flex;align-items:center;gap:10px;flex:none}
+.hgx-logo-mark{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--hgx-red);
+  display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:17px;
+  letter-spacing:-.02em;
+}
+.hgx-logo-text{font-weight:800;font-size:17.5px;letter-spacing:.01em}
+.hgx-logo-text small{display:block;font-size:10.5px;font-weight:500;color:var(--hgx-gray);letter-spacing:.16em}
+
+.hgx-nav{display:flex;gap:4px;flex:1}
+.hgx-nav a{
+  padding:7px 12px;border-radius:8px;font-size:14.5px;color:#333;
+  transition:background .2s,color .2s;
+  white-space:nowrap;
+}
+.hgx-nav a:hover{background:#f0efec;color:var(--hgx-red)}
+
+.hgx-search{position:relative;flex:none;width:230px}
+.hgx-search input{
+  width:100%;height:38px;border-radius:19px;
+  border:1px solid var(--hgx-line);background:#faf9f7;
+  padding:0 40px 0 16px;font-size:13.5px;color:var(--hgx-ink);
+  outline:none;transition:border-color .2s,box-shadow .2s;
+}
+.hgx-search input:focus{border-color:var(--hgx-red);box-shadow:0 0 0 3px rgba(226,72,60,.13)}
+.hgx-search button{
+  position:absolute;right:4px;top:4px;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--hgx-red);color:#fff;font-size:14px;
+  display:grid;place-items:center;
+}
+.hgx-search-tip{
+  position:absolute;left:0;right:0;top:44px;
+  background:#fff;border:1px solid var(--hgx-line);border-radius:10px;
+  box-shadow:var(--hgx-shadow);
+  font-size:13px;color:var(--hgx-gray);
+  padding:10px 14px;display:none;
+}
+.hgx-search-tip.show{display:block}
+.hgx-search-tip b{color:var(--hgx-red)}
+
+.hgx-burger{display:none;width:38px;height:38px;border-radius:9px;background:#f0efec;font-size:18px;align-items:center;justify-content:center}
+
+/* ===== hero ===== */
+.hgx-hero{
+  background:linear-gradient(160deg,#fff 0%,#f2f0eb 55%,#eae7e0 100%);
+  border-bottom:1px solid var(--hgx-line);
+}
+.hgx-hero-inner{
+  max-width:1200px;margin:0 auto;
+  padding:56px 20px 48px;
+  display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center;
+}
+.hgx-hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.1em;
+  color:var(--hgx-red);
+  background:rgba(226,72,60,.09);
+  padding:5px 12px;border-radius:20px;
+  margin-bottom:20px;
+}
+.hgx-hero h1{
+  font-size:clamp(30px,4.1vw,48px);
+  line-height:1.16;letter-spacing:-.01em;font-weight:800;
+  margin-bottom:18px;
+}
+.hgx-hero h1 em{font-style:normal;color:var(--hgx-red);position:relative}
+.hgx-hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:9px;
+  background:var(--hgx-amber);opacity:.5;z-index:-1;border-radius:3px;
+}
+.hgx-hero-lead{
+  font-size:16px;color:#46464c;margin-bottom:14px;max-width:560px;
+}
+.hgx-hero p.hgx-hero-intro{
+  font-size:14.5px;color:var(--hgx-gray);max-width:560px;margin-bottom:28px;
+}
+.hgx-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.hgx-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:11px 22px;border-radius:9px;
+  font-size:14.5px;font-weight:600;
+  transition:transform .18s,box-shadow .18s,background .18s;
+}
+.hgx-btn-primary{background:var(--hgx-red);color:#fff;box-shadow:0 6px 18px rgba(226,72,60,.3)}
+.hgx-btn-primary:hover{background:var(--hgx-red-dark);transform:translateY(-2px)}
+.hgx-btn-ghost{background:#fff;color:var(--hgx-ink);border:1px solid var(--hgx-line)}
+.hgx-btn-ghost:hover{border-color:var(--hgx-ink);transform:translateY(-2px)}
+.hgx-hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hgx-stat b{display:block;font-size:26px;font-weight:800;color:var(--hgx-ink);line-height:1.2}
+.hgx-stat b i{font-style:normal;font-size:14px;color:var(--hgx-red);margin-left:2px}
+.hgx-stat span{font-size:12.5px;color:var(--hgx-gray);letter-spacing:.02em}
+
+.hgx-hero-visual{position:relative}
+.hgx-hero-cover{
+  border-radius:18px;overflow:hidden;
+  box-shadow:0 22px 50px rgba(21,21,23,.2);
+  position:relative;aspect-ratio:16/10;background:#222;
+}
+.hgx-hero-cover img{width:100%;height:100%;object-fit:cover}
+.hgx-hero-cover-badge{
+  position:absolute;left:16px;top:16px;
+  background:var(--hgx-red);color:#fff;
+  font-size:12px;font-weight:700;padding:4px 11px;border-radius:5px;letter-spacing:.06em;
+}
+.hgx-hero-cover-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+}
+.hgx-hero-cover-play span{
+  width:66px;height:66px;border-radius:50%;
+  background:rgba(255,255,255,.92);
+  display:grid;place-items:center;
+  font-size:22px;color:var(--hgx-red);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  padding-left:4px;
+}
+.hgx-hero-cover-meta{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:38px 18px 15px;
+  background:linear-gradient(transparent,rgba(0,0,0,.78));
+  color:#fff;font-size:14.5px;font-weight:600;
+}
+.hgx-hero-float{
+  position:absolute;right:-14px;bottom:-22px;
+  background:#fff;border-radius:13px;
+  padding:12px 16px;box-shadow:var(--hgx-shadow);
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;color:var(--hgx-gray);
+  border:1px solid var(--hgx-line);
+}
+.hgx-hero-float b{display:block;color:var(--hgx-ink);font-size:15px}
+
+/* ===== section shared ===== */
+.hgx-section{padding:64px 0}
+.hgx-section:nth-of-type(even){background:#fff}
+.hgx-wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.hgx-head{margin-bottom:34px;max-width:760px}
+.hgx-head-tag{
+  font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--hgx-red);
+  text-transform:uppercase;margin-bottom:9px;
+}
+.hgx-head h2{font-size:clamp(23px,2.7vw,31px);font-weight:800;letter-spacing:-.01em;line-height:1.28}
+.hgx-head p{color:var(--hgx-gray);font-size:14.5px;margin-top:10px}
+
+/* ===== 深度解析文章区 ===== */
+.hgx-essay{
+  background:#fff;border:1px solid var(--hgx-line);border-radius:18px;
+  padding:38px 40px;box-shadow:var(--hgx-shadow);
+}
+.hgx-essay h3{font-size:20px;font-weight:800;margin:26px 0 10px}
+.hgx-essay h3:first-child{margin-top:0}
+.hgx-essay p{color:#41414a;font-size:15px;margin-bottom:13px}
+.hgx-essay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.hgx-essay-card{
+  background:#faf9f6;border-left:3px solid var(--hgx-red);
+  border-radius:0 10px 10px 0;padding:16px 18px;
+}
+.hgx-essay-card b{display:block;font-size:14.5px;margin-bottom:4px}
+.hgx-essay-card span{font-size:13px;color:var(--hgx-gray)}
+.hgx-essay-quote{
+  background:var(--hgx-ink);color:#f3f2ef;border-radius:12px;
+  padding:22px 26px;font-size:15px;margin:26px 0;
+}
+.hgx-essay-quote b{color:var(--hgx-amber)}
+
+/* ===== 焦点内容 ===== */
+.hgx-focus-grid{
+  display:grid;grid-template-columns:1.25fr 1fr;gap:22px;
+}
+.hgx-focus-main{
+  position:relative;border-radius:18px;overflow:hidden;
+  box-shadow:var(--hgx-shadow);background:#1b1b1e;aspect-ratio:16/10;
+}
+.hgx-focus-main img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hgx-focus-main:hover img{transform:scale(1.04)}
+.hgx-focus-main-info{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:46px 22px 20px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  color:#fff;
+}
+.hgx-focus-main-info h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.hgx-focus-main-info p{font-size:13px;color:#d8d7d3}
+.hgx-focus-side{display:grid;gap:16px}
+.hgx-focus-mini{
+  display:grid;grid-template-columns:120px 1fr;gap:14px;
+  background:#fff;border:1px solid var(--hgx-line);border-radius:13px;
+  padding:10px;align-items:center;transition:border-color .2s,transform .2s;
+}
+.hgx-focus-mini:hover{border-color:var(--hgx-red);transform:translateY(-2px)}
+.hgx-focus-mini .hgx-thumb{
+  border-radius:9px;overflow:hidden;aspect-ratio:16/10;background:#ddd;
+}
+.hgx-focus-mini .hgx-thumb img{width:100%;height:100%;object-fit:cover}
+.hgx-focus-mini h4{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px}
+.hgx-focus-mini span{font-size:12px;color:var(--hgx-gray)}
+
+/* ===== 视频流 ===== */
+.hgx-filter-bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.hgx-chip{
+  font-size:13px;padding:6px 15px;border-radius:20px;
+  border:1px solid var(--hgx-line);background:#fff;color:#4b4b52;
+  transition:all .18s;
+}
+.hgx-chip.active,.hgx-chip:hover{background:var(--hgx-ink);color:#fff;border-color:var(--hgx-ink)}
+.hgx-video-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.hgx-video-card{
+  background:#fff;border-radius:var(--hgx-radius);overflow:hidden;
+  border:1px solid var(--hgx-line);transition:transform .22s,box-shadow .22s;
+  display:flex;flex-direction:column;
+}
+.hgx-video-card:hover{transform:translateY(-4px);box-shadow:var(--hgx-shadow)}
+.hgx-video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#ccc}
+.hgx-video-cover img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.hgx-video-card:hover .hgx-video-cover img{transform:scale(1.06)}
+.hgx-video-cover .hgx-tag{
+  position:absolute;left:10px;top:10px;
+  font-size:11px;font-weight:700;color:#fff;
+  background:rgba(0,0,0,.68);padding:3px 9px;border-radius:4px;
+  backdrop-filter:blur(4px);
+}
+.hgx-video-cover .hgx-dur{
+  position:absolute;right:10px;bottom:10px;
+  font-size:11px;color:#fff;background:rgba(0,0,0,.7);
+  padding:2px 7px;border-radius:4px;
+}
+.hgx-video-cover .hgx-tri{
+  position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .25s;
+}
+.hgx-video-card:hover .hgx-tri{opacity:1}
+.hgx-video-cover .hgx-tri span{
+  width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);
+  display:grid;place-items:center;color:var(--hgx-red);font-size:16px;padding-left:3px;
+}
+.hgx-video-body{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}
+.hgx-video-body h3{font-size:15.5px;font-weight:700;line-height:1.42;margin-bottom:7px}
+.hgx-video-body p{font-size:13px;color:var(--hgx-gray);margin-bottom:12px;flex:1}
+.hgx-video-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  border-top:1px dashed var(--hgx-line);padding-top:11px;
+}
+.hgx-author{display:flex;align-items:center;gap:7px;font-size:12.5px;color:#4a4a52}
+.hgx-avatar{
+  width:26px;height:26px;border-radius:50%;flex:none;
+  display:grid;place-items:center;font-size:11.5px;font-weight:700;color:#fff;
+}
+.hgx-actions{display:flex;gap:4px}
+.hgx-act{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:12px;color:var(--hgx-gray);padding:4px 7px;border-radius:6px;
+  transition:background .18s,color .18s;
+}
+.hgx-act:hover{background:#f2f1ee;color:var(--hgx-ink)}
+.hgx-act.liked{color:var(--hgx-red)}
+.hgx-act.saved{color:var(--hgx-red)}
+
+/* ===== 专题 ===== */
+.hgx-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hgx-topic{
+  border-radius:15px;overflow:hidden;position:relative;
+  min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:22px;color:#fff;background:#222;
+  transition:transform .22s;
+}
+.hgx-topic:hover{transform:translateY(-4px)}
+.hgx-topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hgx-topic::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(transparent 22%,rgba(0,0,0,.82));
+}
+.hgx-topic>*{position:relative;z-index:2}
+.hgx-topic em{
+  font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;
+  background:var(--hgx-red);padding:3px 9px;border-radius:4px;
+  align-self:flex-start;margin-bottom:10px;
+}
+.hgx-topic h3{font-size:16.5px;font-weight:700;margin-bottom:6px;line-height:1.4}
+.hgx-topic p{font-size:12.5px;color:#deddd9}
+.hgx-topic .hgx-topic-status{margin-top:10px;font-size:11.5px;color:var(--hgx-amber);font-weight:600}
+
+/* ===== 创作者 ===== */
+.hgx-creator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hgx-creator{
+  background:#fff;border:1px solid var(--hgx-line);border-radius:14px;
+  padding:22px;display:flex;gap:15px;align-items:flex-start;
+  transition:border-color .2s,transform .2s;
+}
+.hgx-creator:hover{border-color:var(--hgx-red);transform:translateY(-3px)}
+.hgx-creator-avatar{
+  width:52px;height:52px;border-radius:16px;flex:none;
+  display:grid;place-items:center;font-size:19px;font-weight:800;color:#fff;
+}
+.hgx-creator h3{font-size:15px;font-weight:700;margin-bottom:3px}
+.hgx-creator .hgx-creator-field{font-size:12px;color:var(--hgx-red);font-weight:600;margin-bottom:7px}
+.hgx-creator p{font-size:12.5px;color:var(--hgx-gray);margin-bottom:10px;line-height:1.6}
+.hgx-creator-data{display:flex;gap:14px;font-size:11.5px;color:var(--hgx-gray)}
+.hgx-creator-data b{color:var(--hgx-ink);font-size:13px}
+.hgx-creator-more{
+  margin-top:10px;font-size:12px;color:var(--hgx-red);font-weight:600;
+  background:none;padding:0;display:inline-flex;align-items:center;gap:3px;
+}
+
+/* ===== 评价 ===== */
+.hgx-feedback{background:var(--hgx-ink);color:#eee;border-radius:20px;padding:46px 40px}
+.hgx-feedback .hgx-head h2{color:#fff}
+.hgx-feedback .hgx-head p{color:#a9a8a4}
+.hgx-feedback .hgx-head-tag{color:var(--hgx-amber)}
+.hgx-fb-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.hgx-fb-card{
+  background:#1e1e21;border:1px solid #2c2c31;border-radius:12px;
+  padding:18px 19px;font-size:13.5px;color:#cfceca;line-height:1.7;
+  transition:background .2s;
+}
+.hgx-fb-card:hover{background:#26262a}
+.hgx-fb-card .hgx-fb-user{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.hgx-fb-card .hgx-fb-user b{font-size:13px;color:#fff;font-weight:600}
+.hgx-fb-card .hgx-fb-user span{font-size:11px;color:#7d7d84}
+.hgx-fb-card p{margin-bottom:10px}
+.hgx-fb-stars{color:var(--hgx-amber);font-size:12px;letter-spacing:2px}
+
+/* ===== 动态/更新 ===== */
+.hgx-timeline{position:relative;padding-left:26px}
+.hgx-timeline::before{
+  content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+  background:var(--hgx-line);
+}
+.hgx-tl-item{position:relative;padding-bottom:26px}
+.hgx-tl-item:last-child{padding-bottom:0}
+.hgx-tl-item::before{
+  content:"";position:absolute;left:-26px;top:7px;
+  width:12px;height:12px;border-radius:50%;
+  background:#fff;border:3px solid var(--hgx-red);
+}
+.hgx-tl-date{font-size:12px;color:var(--hgx-red);font-weight:700;letter-spacing:.04em;margin-bottom:3px}
+.hgx-tl-item h3{font-size:15.5px;font-weight:700;margin-bottom:5px}
+.hgx-tl-item p{font-size:13.5px;color:var(--hgx-gray)}
+
+/* ===== 合作品牌 ===== */
+.hgx-partner-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.hgx-partner{
+  background:#fff;border:1px solid var(--hgx-line);border-radius:12px;
+  height:74px;display:grid;place-items:center;
+  font-size:13.5px;font-weight:700;color:#8b8a86;letter-spacing:.02em;
+  transition:color .2s,border-color .2s,transform .2s;
+}
+.hgx-partner:hover{color:var(--hgx-ink);border-color:var(--hgx-red);transform:translateY(-2px)}
+
+/* ===== FAQ ===== */
+.hgx-faq{display:grid;gap:10px;max-width:900px}
+.hgx-faq details{
+  background:#fff;border:1px solid var(--hgx-line);border-radius:11px;
+  padding:15px 20px;transition:border-color .2s;
+}
+.hgx-faq details[open]{border-color:var(--hgx-red)}
+.hgx-faq summary{
+  font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.hgx-faq summary::-webkit-details-marker{display:none}
+.hgx-faq summary::after{
+  content:"+";flex:none;color:var(--hgx-red);font-size:19px;font-weight:400;
+  transition:transform .2s;
+}
+.hgx-faq details[open] summary::after{transform:rotate(45deg)}
+.hgx-faq details p{font-size:13.5px;color:var(--hgx-gray);margin-top:11px;line-height:1.75}
+
+/* ===== 联系/投稿 ===== */
+.hgx-cta{
+  background:linear-gradient(135deg,#e2483c,#a92e24);
+  border-radius:20px;padding:52px 44px;color:#fff;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;
+}
+.hgx-cta h2{font-size:clamp(23px,2.7vw,30px);font-weight:800;line-height:1.3;margin-bottom:12px}
+.hgx-cta p{font-size:14.5px;color:rgba(255,255,255,.86);margin-bottom:20px}
+.hgx-cta-btns{display:flex;flex-wrap:wrap;gap:11px}
+.hgx-cta .hgx-btn-ghost{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.42)}
+.hgx-cta .hgx-btn-ghost:hover{background:rgba(255,255,255,.24);border-color:#fff}
+.hgx-cta-info{display:grid;gap:14px}
+.hgx-cta-info div{
+  background:rgba(255,255,255,.11);border-radius:11px;padding:14px 18px;
+  font-size:13px;color:rgba(255,255,255,.9);
+}
+.hgx-cta-info b{display:block;font-size:14.5px;color:#fff;margin-bottom:2px}
+
+/* ===== footer ===== */
+.hgx-footer{background:#101012;color:#a3a2a0;padding:52px 0 26px;font-size:13.5px}
+.hgx-footer-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;margin-bottom:36px;
+}
+.hgx-footer h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:13px}
+.hgx-footer p{line-height:1.8;font-size:13px}
+.hgx-footer li{margin-bottom:8px}
+.hgx-footer a:hover{color:var(--hgx-red)}
+.hgx-footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.hgx-footer-bottom{
+  border-top:1px solid #242427;padding-top:20px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  font-size:12px;color:#6f6f75;
+}
+
+/* ===== modal & toast ===== */
+.hgx-modal{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(15,15,17,.62);backdrop-filter:blur(3px);
+  display:none;place-items:center;padding:20px;
+}
+.hgx-modal.show{display:grid}
+.hgx-modal-box{
+  background:#fff;border-radius:16px;max-width:480px;width:100%;
+  padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.3);
+  animation:hgx-pop .25s ease;
+}
+@keyframes hgx-pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.hgx-modal-box h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.hgx-modal-box p{font-size:13.5px;color:var(--hgx-gray);margin-bottom:18px}
+.hgx-modal-box label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px;color:#3f3f45}
+.hgx-modal-box input,.hgx-modal-box textarea{
+  width:100%;border:1px solid var(--hgx-line);border-radius:8px;
+  padding:9px 12px;font-size:13.5px;font-family:inherit;margin-bottom:13px;
+  outline:none;background:#faf9f7;color:var(--hgx-ink);
+}
+.hgx-modal-box input:focus,.hgx-modal-box textarea:focus{border-color:var(--hgx-red)}
+.hgx-modal-close{
+  float:right;width:30px;height:30px;border-radius:50%;background:#f0efec;
+  display:grid;place-items:center;font-size:15px;color:#555;
+}
+.hgx-share-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+.hgx-share-row button{
+  flex:1;min-width:90px;background:#f4f3f0;border-radius:8px;
+  padding:10px 6px;font-size:13px;color:#3c3c42;transition:background .18s;
+}
+.hgx-share-row button:hover{background:#ebe9e4}
+.hgx-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);
+  background:#1c1c1f;color:#fff;font-size:13.5px;padding:11px 20px;
+  border-radius:9px;box-shadow:0 10px 30px rgba(0,0,0,.28);
+  opacity:0;pointer-events:none;transition:all .28s;z-index:400;
+}
+.hgx-toast.show{opacity:1;transform:translate(-50%,0)}
+.hgx-totop{
+  position:fixed;right:22px;bottom:26px;z-index:200;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--hgx-ink);color:#fff;font-size:17px;
+  display:grid;place-items:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.22);
+  opacity:0;pointer-events:none;transition:all .25s;
+}
+.hgx-totop.show{opacity:1;pointer-events:auto}
+.hgx-totop:hover{background:var(--hgx-red)}
+
+/* ===== responsive ===== */
+@media(max-width:1000px){
+  .hgx-hero-inner{grid-template-columns:1fr;gap:36px}
+  .hgx-focus-grid{grid-template-columns:1fr}
+  .hgx-video-grid{grid-template-columns:repeat(2,1fr)}
+  .hgx-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .hgx-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .hgx-fb-grid{grid-template-columns:repeat(2,1fr)}
+  .hgx-partner-grid{grid-template-columns:repeat(3,1fr)}
+  .hgx-footer-grid{grid-template-columns:1fr 1fr}
+  .hgx-cta{grid-template-columns:1fr;gap:28px;padding:38px 28px}
+  .hgx-essay-grid{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  .hgx-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#fff;flex-direction:column;padding:12px 20px 18px;
+    border-bottom:1px solid var(--hgx-line);box-shadow:0 12px 24px rgba(0,0,0,.08);
+  }
+  .hgx-nav.open{display:flex}
+  .hgx-header-inner{flex-wrap:wrap;position:relative}
+  .hgx-search{width:100%;order:3;margin-top:8px}
+  .hgx-burger{display:flex;margin-left:auto}
+  .hgx-notice-track span{animation-duration:20s}
+  .hgx-section{padding:48px 0}
+  .hgx-essay{padding:26px 22px}
+  .hgx-feedback{padding:32px 22px}
+}
+@media(max-width:640px){
+  .hgx-video-grid,.hgx-topic-grid,.hgx-creator-grid,.hgx-fb-grid{grid-template-columns:1fr}
+  .hgx-partner-grid{grid-template-columns:repeat(2,1fr)}
+  .hgx-footer-grid{grid-template-columns:1fr}
+  .hgx-hero-stats{gap:22px}
+  .hgx-notice-inner{height:auto;padding:8px 0;flex-wrap:wrap}
+  .hgx-sticky{position:relative}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== sticky notice + header ===== -->
+<div class="hgx-sticky">
+  <div class="hgx-notice" aria-label="站内公告">
+    <div class="hgx-notice-inner">
+      <span class="hgx-notice-tag">官方发布</span>
+      <div class="hgx-notice-track">
+        <span>「爆料观察室」第 27 期上线：拆解信息传播链路上的 5 个常见误读 · 创作者诚信公约 2026 版开放签署 · 11 月行业观察报告与议题投票同步开启 · 内容生态开放日报名通道已开启 &nbsp;&nbsp;&nbsp; 「爆料观察室」第 27 期上线：拆解信息传播链路上的 5 个常见误读 · 创作者诚信公约 2026 版开放签署 · 11 月行业观察报告与议题投票同步开启 · 内容生态开放日报名通道已开启</span>
+      </div>
+    </div>
+  </div>
+  <header class="hgx-header">
+    <div class="hgx-header-inner">
+      <a class="hgx-logo" href="#top" aria-label="爆料观察站首页">
+        <span class="hgx-logo-mark">爆</span>
+        <span class="hgx-logo-text">爆料观察站<small>OBSERVE STUDIO</small></span>
+      </a>
+      <nav class="hgx-nav" id="hgxNav">
+        <a href="#top">首页</a>
+        <a href="#focus">焦点内容</a>
+        <a href="#stream">视频流</a>
+        <a href="#topic">专题企划</a>
+        <a href="#creator">创作者</a>
+        <a href="#essay">品牌解析</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助</a>
+      </nav>
+      <div class="hgx-search">
+        <input type="text" id="hgxSearchInput" placeholder="搜索议题、创作者、专题…" aria-label="站内搜索">
+        <button type="button" id="hgxSearchBtn" aria-label="搜索">🔍</button>
+        <div class="hgx-search-tip" id="hgxSearchTip"></div>
+      </div>
+      <button class="hgx-burger" id="hgxBurger" aria-label="展开导航" aria-expanded="false">☰</button>
+    </div>
+  </header>
+</div>
+
+<!-- ===== hero ===== -->
+<section class="hgx-hero" id="top">
+  <div class="hgx-hero-inner">
+    <div>
+      <span class="hgx-hero-kicker">官方网站 · 内容观察与理性解读</span>
+      <h1>网红黑料爆料<em>官网</em>：把热闹看明白，把事实讲清楚</h1>
+      <p class="hgx-hero-lead">一家专注于网络内容生态的原创视频品牌，我们以影像记录行业动态，用采访与梳理还原事件脉络，陪伴每一位用户理性看待热点。</p>
+      <p class="hgx-hero-intro">作为深耕内容生态领域的品牌，爆料观察站官方网站坚持正版、高清、专业的制作标准，围绕网红黑料爆料相关话题，持续输出可追溯、有出处、经得起推敲的观察内容。平台汇聚创作者、行业研究者与普通用户，以多元视角共建值得信赖的讨论社区。</p>
+      <div class="hgx-hero-actions">
+        <a class="hgx-btn hgx-btn-primary" href="#stream">进入内容主区 →</a>
+        <a class="hgx-btn hgx-btn-ghost" href="#essay">了解品牌理念</a>
+        <a class="hgx-btn hgx-btn-ghost" href="#contact">投稿与联系</a>
+      </div>
+      <div class="hgx-hero-stats">
+        <div class="hgx-stat"><b>186<i>万</i></b><span>社区注册用户</span></div>
+        <div class="hgx-stat"><b>2,400<i>+</i></b><span>原创观察视频</span></div>
+        <div class="hgx-stat"><b>93<i>%</i></b><span>内容信息溯源率</span></div>
+      </div>
+    </div>
+    <div class="hgx-hero-visual">
+      <div class="hgx-hero-cover">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23241f2a'/%3E%3Cstop offset='1' stop-color='%23a72e26'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='400' fill='url(%23g1)'/%3E%3Ccircle cx='470' cy='120' r='130' fill='%23ffd166' opacity='.18'/%3E%3Ccircle cx='180' cy='300' r='150' fill='%23e2483c' opacity='.25'/%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.5' stroke-width='2'%3E%3Cpath d='M120 250 L240 160 L330 230 L430 130 L540 210'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='240' cy='160' r='7'/%3E%3Ccircle cx='430' cy='130' r='7' fill='%23ffd166'/%3E%3C/g%3E%3Crect x='80' y='70' width='120' height='10' rx='5' fill='%23ffffff' opacity='.7'/%3E%3Crect x='80' y='94' width='200' height='8' rx='4' fill='%23ffffff' opacity='.35'/%3E%3C/svg%3E" alt="爆料观察室第27期主视觉：信息传播链路示意图">
+        <span class="hgx-hero-cover-badge">焦点 · 观察室</span>
+        <div class="hgx-hero-cover-play"><span>▶</span></div>
+        <div class="hgx-hero-cover-meta">第 27 期：一条爆料如何被放大 —— 传播链路上的 5 个误读节点</div>
+      </div>
+      <div class="hgx-hero-float">
+        <span style="font-size:20px">🎙️</span>
+        <div><b>本周新增专访</b>3 位内容行业研究者</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== essay / brand ===== -->
+<section class="hgx-section" id="essay">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">品牌解析 · 深度</div>
+      <h2>我们如何理解「网红黑料爆料」这件事</h2>
+      <p>热点从不缺围观，缺的是把时间线捋顺、把出处标清、把观点和事实分开的耐心。以下是我们对品牌定位与内容方法的完整说明。</p>
+    </div>
+    <div class="hgx-essay">
+      <h3>一、为什么做一个专注于「爆料」议题的观察品牌</h3>
+      <p>网络上的每一次爆料，往往在几小时内就完成从一条动态到全网讨论的扩散。信息密度的膨胀没有同步带来理解能力的提升，反而容易让情绪先于事实抵达。爆料观察站作为一家持续运营的视频内容品牌，选择把镜头对准这个过程本身：一条信息从何而来、经过了哪些转述、在哪一步发生了变化、评论区的共识是如何被塑造的。我们并不追逐喧闹，而是希望用企业级的制作标准，把「看不懂的热闹」变成「想得清的讨论」。</p>
+      <p>官方网站上的每一期内容都遵循同一套流程：先做信息溯源，再做时间线整理，然后邀请相关领域的创作者与研究者进行多方对谈，最后由编辑团队交叉核对后成片。这套流程让网红黑料爆料这类话题不再只是谈资，而成为观察内容生态、审视传播机制、反思平台责任的入口。</p>
+      <h3>二、内容生产的三条底线</h3>
+      <p>第一是出处优先。任何进入我们影像的素材，都要求标注可查证来源；无法确认的信息我们会明确标注为「待核实」，而不会用模糊表述带过。第二是多方呈现。涉及具体人物与事件的议题，我们会尽力联系当事方或相关从业者，让不同立场的声音都能被听见，避免单一线索定义全部。第三是可撤回。若后续出现新的证据足以推翻已有结论，我们会公开更正并在视频与页面同步说明，这既是专业要求，也是品牌口碑的基础。</p>
+      <div class="hgx-essay-grid">
+        <div class="hgx-essay-card"><b>溯源机制</b><span>每期内容标注不少于 3 个可查证信息来源节点</span></div>
+        <div class="hgx-essay-card"><b>交叉核对</b><span>编辑、法务、领域顾问三方独立复核后发布</span></div>
+        <div class="hgx-essay-card"><b>公开更正</b><span>结论变化时同步更新影像与图文，并保留记录</span></div>
+      </div>
+      <h3>三、平台、创作者与用户的三角关系</h3>
+      <p>爆料观察站把自身定位为「中间层」：向上对接创作者与行业研究者，向下服务普通用户，同时与内容平台保持沟通。我们相信内容生态的健康发展需要三方共同承担责任。对创作者，我们提供选题工具、脚本灵感与剪辑思路；对用户，我们提供清晰的信息层级与可参与的表达空间；对行业，我们通过年度观察报告与公开对话，推动更透明的内容治理讨论。这也是我们坚持「用户至上、真实、温暖」这些关键词的原因——它们不是口号，而是产品设计里的具体选择。</p>
+      <div class="hgx-essay-quote">我们始终认为：<b>把事实讲清楚</b>，比把情绪放大更容易被记住；<b>把视角打开</b>，比把结论喊出来更有力量。品牌的价值不在于抢先一步，而在于经得起回看。</div>
+      <h3>四、品牌故事与长期方向</h3>
+      <p>团队起步于一次对传播链路的追踪实验：几位内容从业者用一周时间还原一条爆料的完整路径，发现其中超过一半的转述都出现了关键信息缺失。这个结果促使我们决定把这件事长期做下去。今天，爆料观察站已经形成「观察室长片 + 议题短片 + 创作者对谈 + 用户投稿」的内容矩阵，并逐步把议题从单一事件扩展到内容行业的普遍问题：流量与真实如何平衡、创作者如何面对舆论压力、平台规则如何被理解与执行。</p>
+      <p>未来，我们将继续在垂直领域深耕，把网红黑料爆料这类高关注话题做成有方法论支撑的观察产品，同时通过持续的公开内容与社区互动，沉淀值得信赖的品牌影响力。对用户而言，这里是了解行业动态的窗口；对创作者而言，这里是表达与成长的土壤；对行业而言，我们希望它成为一份长期可引用的记录。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== focus ===== -->
+<section class="hgx-section" id="focus">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">焦点内容</div>
+      <h2>本期重点：从一条动态到一场讨论</h2>
+      <p>编辑部从近两周的更新中选出 2 个重点长片与 3 个议题短片，覆盖传播链路、创作者生态与平台规则三个方向。</p>
+    </div>
+    <div class="hgx-focus-grid">
+      <article class="hgx-focus-main">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 450'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a2338'/%3E%3Cstop offset='.6' stop-color='%233a4d6d'/%3E%3Cstop offset='1' stop-color='%23e2483c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='450' fill='url(%23g2)'/%3E%3Cg stroke='%23ffffff' stroke-opacity='.22' stroke-width='1.4'%3E%3Cpath d='M0 340 Q180 250 360 320 T720 260'/%3E%3Cpath d='M0 380 Q180 300 360 360 T720 310'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Crect x='70' y='80' width='230' height='13' rx='6' opacity='.85'/%3E%3Crect x='70' y='110' width='340' height='9' rx='4' opacity='.4'/%3E%3Crect x='70' y='132' width='280' height='9' rx='4' opacity='.28'/%3E%3C/g%3E%3Ccircle cx='560' cy='150' r='82' fill='%23ffd166' opacity='.26'/%3E%3Ccircle cx='560' cy='150' r='50' fill='none' stroke='%23ffffff' stroke-opacity='.5' stroke-width='2'/%3E%3Cpath d='M545 128 L590 150 L545 172 Z' fill='%23ffffff' opacity='.85'/%3E%3C/svg%3E" alt="观察室长片封面：一条爆料的传播链路还原">
+        <div class="hgx-focus-main-info">
+          <h3>长片｜一条爆料的 72 小时：传播链路还原实验</h3>
+          <p>我们追踪了同一条信息在 12 个账号间的流转，标注出 5 个关键误读节点与 3 次立场反转。</p>
+        </div>
+      </article>
+      <div class="hgx-focus-side">
+        <article class="hgx-focus-mini">
+          <div class="hgx-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 125'%3E%3Crect width='200' height='125' fill='%232b3a2e'/%3E%3Ccircle cx='150' cy='40' r='42' fill='%2389b57a' opacity='.35'/%3E%3Crect x='18' y='26' width='86' height='9' rx='4' fill='%23ffffff' opacity='.7'/%3E%3Crect x='18' y='46' width='120' height='6' rx='3' fill='%23ffffff' opacity='.35'/%3E%3Cpath d='M18 100 L60 74 L96 92 L140 62 L182 86' stroke='%23ffd166' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="议题短片封面：创作者面对舆论压力的自我修养">
+          </div>
+          <div>
+            <h4>创作者如何面对突如其来的舆论压力</h4>
+            <span>议题短片 · 14:22 · 12.6 万次播放</span>
+          </div>
+        </article>
+        <article class="hgx-focus-mini">
+          <div class="hgx-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 125'%3E%3Crect width='200' height='125' fill='%2338322e'/%3E%3Cg fill='%23e2483c' opacity='.55'%3E%3Crect x='22' y='64' width='22' height='42'/%3E%3Crect x='58' y='44' width='22' height='62'/%3E%3Crect x='94' y='54' width='22' height='52'/%3E%3Crect x='130' y='30' width='22' height='76'/%3E%3C/g%3E%3Crect x='22' y='22' width='110' height='8' rx='4' fill='%23ffffff' opacity='.6'/%3E%3C/svg%3E" alt="议题短片封面：爆料账号的流量逻辑拆解">
+          </div>
+          <div>
+            <h4>爆料账号的流量逻辑：选题、标题与节奏</h4>
+            <span>行业观察 · 11:05 · 9.8 万次播放</span>
+          </div>
+        </article>
+        <article class="hgx-focus-mini">
+          <div class="hgx-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 125'%3E%3Crect width='200' height='125' fill='%23263240'/%3E%3Ccircle cx='62' cy='56' r='22' fill='%237f9ec4' opacity='.7'/%3E%3Ccircle cx='110' cy='56' r='22' fill='%23e2483c' opacity='.7'/%3E%3Ccircle cx='84' cy='84' r='22' fill='%23ffd166' opacity='.7'/%3E%3Crect x='150' y='30' width='30' height='70' rx='4' fill='%23ffffff' opacity='.25'/%3E%3C/svg%3E" alt="议题短片封面：多方对谈现场">
+          </div>
+          <div>
+            <h4>多方对谈：平台规则应当如何被理解</h4>
+            <span>人物访谈 · 26:40 · 15.2 万次播放</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== video stream ===== -->
+<section class="hgx-section" id="stream">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">视频流 · 精选</div>
+      <h2>社区精选：正在被讨论的 9 条内容</h2>
+      <p>按主题筛选你关心的方向。点击卡片上的收藏与点赞，可以把喜欢的内容留在个人轨迹里。</p>
+    </div>
+    <div class="hgx-filter-bar" id="hgxFilterBar">
+      <button class="hgx-chip active" data-filter="all">全部</button>
+      <button class="hgx-chip" data-filter="溯源">信息溯源</button>
+      <button class="hgx-chip" data-filter="创作者">创作者生态</button>
+      <button class="hgx-chip" data-filter="平台">平台规则</button>
+      <button class="hgx-chip" data-filter="记录">日常记录</button>
+    </div>
+    <div class="hgx-video-grid" id="hgxVideoGrid">
+
+      <article class="hgx-video-card" data-cat="溯源">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%2320242c'/%3E%3Cg stroke='%23e2483c' stroke-width='2' fill='none' opacity='.8'%3E%3Cpath d='M300 90 Q250 40 200 90 T100 90 T20 90'/%3E%3C/g%3E%3Ccircle cx='200' cy='90' r='10' fill='%23ffd166'/%3E%3Crect x='22' y='24' width='96' height='8' rx='4' fill='%23ffffff' opacity='.7'/%3E%3C/svg%3E" alt="视频封面：信息溯源的第一步">
+          <span class="hgx-tag">信息溯源</span>
+          <span class="hgx-dur">09:18</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>信息溯源的第一步：如何找到原始发布者</h3>
+          <p>从截图时间戳、账号历史与转发路径三条线索入手，还原一条信息最初的落点。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#e2483c">溯</span>溯源小组</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>1.2k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="创作者">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23302a38'/%3E%3Ccircle cx='90' cy='90' r='46' fill='%23c9a227' opacity='.4'/%3E%3Ccircle cx='160' cy='90' r='46' fill='%23e2483c' opacity='.4'/%3E%3Ccircle cx='230' cy='90' r='46' fill='%237f9ec4' opacity='.4'/%3E%3Crect x='22' y='148' width='120' height='7' rx='3' fill='%23ffffff' opacity='.55'/%3E%3C/svg%3E" alt="视频封面：创作者的三条自我保护线">
+          <span class="hgx-tag">创作者生态</span>
+          <span class="hgx-dur">13:02</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>创作者的三条自我保护线：留痕、回应与边界</h3>
+          <p>面对不实信息，及时留痕与克制的公开回应，往往比情绪化反击更有效。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#2f4a6b">林</span>林一舟</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>986</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="平台">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231f2b2a'/%3E%3Cg fill='%2389b57a' opacity='.55'%3E%3Crect x='30' y='110' width='30' height='50'/%3E%3Crect x='78' y='86' width='30' height='74'/%3E%3Crect x='126' y='62' width='30' height='98'/%3E%3Crect x='174' y='94' width='30' height='66'/%3E%3Crect x='222' y='44' width='30' height='116'/%3E%3C/g%3E%3Crect x='270' y='24' width='30' height='8' rx='4' fill='%23ffd166'/%3E%3C/svg%3E" alt="视频封面：平台规则的三个关键变化">
+          <span class="hgx-tag">平台规则</span>
+          <span class="hgx-dur">17:45</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>平台规则的三个关键变化，与普通用户有什么关系</h3>
+          <p>从内容标注到账号行为规范，逐条解释新规如何影响你每天看到的信息。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#3f6b4a">规</span>规则观察室</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>2.4k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="溯源">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%232a2233'/%3E%3Cg fill='none' stroke='%23ffd166' stroke-width='1.6' opacity='.6'%3E%3Crect x='40' y='40' width='70' height='100' rx='6'/%3E%3Crect x='125' y='40' width='70' height='100' rx='6'/%3E%3Crect x='210' y='40' width='70' height='100' rx='6'/%3E%3C/g%3E%3Ccircle cx='75' cy='70' r='8' fill='%23e2483c'/%3E%3C/svg%3E" alt="视频封面：时间线重建的实用方法">
+          <span class="hgx-tag">信息溯源</span>
+          <span class="hgx-dur">08:36</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>用一张时间线重建事件：实用方法与工具</h3>
+          <p>把零散截图排成可读脉络，我们演示了三种适合普通用户的整理方式。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#7a5a2f">线</span>时间线工坊</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>735</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="记录">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%233a2f2a'/%3E%3Ccircle cx='250' cy='52' r='34' fill='%23f0b46a' opacity='.55'/%3E%3Cpath d='M0 150 L70 110 L140 138 L210 96 L320 132 L320 180 L0 180 Z' fill='%235d4a3c'/%3E%3Crect x='24' y='26' width='80' height='8' rx='4' fill='%23ffffff' opacity='.6'/%3E%3C/svg%3E" alt="视频封面：一位内容审核员的一天">
+          <span class="hgx-tag">日常记录</span>
+          <span class="hgx-dur">21:14</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>一位内容审核员的一天：判断是怎么做出的</h3>
+          <p>跟随镜头记录真实工作节奏，理解平台一线判断的复杂与不易。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#a8542a">记</span>在场记录</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>3.1k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="创作者">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23253140'/%3E%3Cg fill='%23ffffff' opacity='.85'%3E%3Ccircle cx='90' cy='80' r='26'/%3E%3Ccircle cx='160' cy='80' r='26'/%3E%3Ccircle cx='230' cy='80' r='26'/%3E%3C/g%3E%3Cpath d='M64 80 h52 M144 80 h32 M214 80 h42' stroke='%23e2483c' stroke-width='3'/%3E%3Crect x='22' y='140' width='100' height='7' rx='3' fill='%23ffd166' opacity='.7'/%3E%3C/svg%3E" alt="视频封面：创作者之间的同行对话">
+          <span class="hgx-tag">创作者生态</span>
+          <span class="hgx-dur">32:08</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>同行对话：被误读之后，我们如何继续创作</h3>
+          <p>四位创作者坐下来聊了聊被曲解的经历，以及重建信任的具体做法。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#4b3d7a">对</span>对话编辑部</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>1.8k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="平台">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%231b1f24'/%3E%3Cg stroke='%237f9ec4' stroke-width='1.8' fill='none' opacity='.7'%3E%3Ccircle cx='160' cy='90' r='58'/%3E%3Ccircle cx='160' cy='90' r='36'/%3E%3Ccircle cx='160' cy='90' r='14'/%3E%3C/g%3E%3Ccircle cx='160' cy='90' r='5' fill='%23e2483c'/%3E%3C/svg%3E" alt="视频封面：算法推荐与信息茧房">
+          <span class="hgx-tag">平台规则</span>
+          <span class="hgx-dur">15:50</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>算法推荐与信息茧房：我们能主动做点什么</h3>
+          <p>从内容偏好设置到主动搜索，几个可以立刻实践的小习惯。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#2b5a6b">算</span>算法小组</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>1.1k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="记录">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23312931'/%3E%3Cg fill='%23e2483c' opacity='.4'%3E%3Crect x='30' y='60' width='60' height='60' rx='8'/%3E%3Crect x='110' y='40' width='60' height='80' rx='8'/%3E%3Crect x='190' y='70' width='60' height='50' rx='8'/%3E%3Crect x='260' y='50' width='34' height='70' rx='8'/%3E%3C/g%3E%3Crect x='30' y='140' width='150' height='7' rx='3' fill='%23ffffff' opacity='.5'/%3E%3C/svg%3E" alt="视频封面：社区志愿者的线下记录">
+          <span class="hgx-tag">日常记录</span>
+          <span class="hgx-dur">24:33</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>线下记录的另一种可能：社区志愿者的影像笔记</h3>
+          <p>用手机拍下的真实片段，讲述一个普通社区的日常与温度。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#6b4a3f">志</span>街区影像社</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>642</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="hgx-video-card" data-cat="创作者">
+        <div class="hgx-video-cover">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180'%3E%3Crect width='320' height='180' fill='%23202a2f'/%3E%3Cpath d='M60 120 L100 70 L140 100 L185 55 L235 90 L280 60' stroke='%23ffd166' stroke-width='3' fill='none'/%3E%3Ccircle cx='185' cy='55' r='8' fill='%23e2483c'/%3E%3Crect x='22' y='24' width='110' height='8' rx='4' fill='%23ffffff' opacity='.65'/%3E%3C/svg%3E" alt="视频封面：创作灵感从哪里来">
+          <span class="hgx-tag">创作者生态</span>
+          <span class="hgx-dur">10:27</span>
+          <div class="hgx-tri"><span>▶</span></div>
+        </div>
+        <div class="hgx-video-body">
+          <h3>创作灵感从哪里来：五个可复用的选题方法</h3>
+          <p>从评论区提问、行业报告到跨领域类比，把灵感变成稳定产出的方法。</p>
+          <div class="hgx-video-foot">
+            <div class="hgx-author"><span class="hgx-avatar" style="background:#8a5a2a">灵</span>灵感加工厂</div>
+            <div class="hgx-actions">
+              <button class="hgx-act hgx-like" type="button">👍 <span>2.0k</span></button>
+              <button class="hgx-act hgx-save" type="button">♡</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== topics ===== -->
+<section class="hgx-section" id="topic">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">专题企划</div>
+      <h2>四个正在更新的专题企划</h2>
+      <p>以专题方式组织内容，让分散的观察形成可连续阅读的结构。点击可查看该专题的更新进度说明。</p>
+    </div>
+    <div class="hgx-topic-grid">
+      <article class="hgx-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%232b1f24'/%3E%3Ccircle cx='300' cy='80' r='90' fill='%23e2483c' opacity='.3'/%3E%3Ccircle cx='120' cy='180' r='70' fill='%23ffd166' opacity='.22'/%3E%3C/svg%3E" alt="专题封面：爆料生命周期观察">
+        <em>专题 01</em>
+        <h3>爆料生命周期观察</h3>
+        <p>从出现、扩散、反转到达成共识，拆解一条信息在生态中的完整旅程。</p>
+        <div class="hgx-topic-status">更新至第 12 期 · 连载中</div>
+      </article>
+      <article class="hgx-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%231e2b33'/%3E%3Cg fill='none' stroke='%237f9ec4' stroke-width='2' opacity='.7'%3E%3Crect x='50' y='60' width='90' height='140' rx='8'/%3E%3Crect x='160' y='90' width='90' height='110' rx='8'/%3E%3Crect x='270' y='50' width='90' height='150' rx='8'/%3E%3C/g%3E%3C/svg%3E" alt="专题封面：创作者成长档案">
+        <em>专题 02</em>
+        <h3>创作者成长档案</h3>
+        <p>记录内容行业一线创作者的真实路径，包括起步、转折与低谷期。</p>
+        <div class="hgx-topic-status">更新至第 8 期 · 连载中</div>
+      </article>
+      <article class="hgx-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 260'%3E%3Crect width='400' height='260' fill='%23242e22'/%3E%3Cg fill='%2389b57a' opacity='.5'%3E%3Ccircle cx='130' cy='130' r='60'/%3E%3Ccircle cx='270' cy='130' r='60'/%3E%3C/g%3E%3Crect x='190' y='100' width='20' height='60' fill='%23ffd166' opacity='.8'/%3E%3C/svg%3E" alt="专题封面：平台规则共读计划">
+        <em>专题 03</em>
+        <h3>平台规则共读计划</h3>
+        <p>把规则文本翻译成日常语言，每月一期，配套问答与真实案例。</p>
+        <div class="hgx-topic-status">已完结 · 共 15 期</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== creators ===== -->
+<section class="hgx-section" id="creator">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">创作者矩阵</div>
+      <h2>内容生态里，这些名字值得记住</h2>
+      <p>我们与多位长期关注内容生态的创作者、研究者和记录者保持合作，他们的作品构成平台的主要表达。点击「了解作者」查看档案。</p>
+    </div>
+    <div class="hgx-creator-grid">
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#e2483c,#a92e24)">溯</div>
+        <div>
+          <h3>溯源小组</h3>
+          <div class="hgx-creator-field">擅长：信息溯源 · 时间线重建</div>
+          <p>由三位纪实编辑组成，专注把复杂事件拆成可读的时间线，强调出处优先。</p>
+          <div class="hgx-creator-data"><span>作品 <b>126</b></span><span>关注 <b>8.4 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="溯源小组">了解作者 →</button>
+        </div>
+      </article>
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#2f4a6b,#7f9ec4)">林</div>
+        <div>
+          <h3>林一舟</h3>
+          <div class="hgx-creator-field">擅长：创作者访谈 · 心理支持</div>
+          <p>前媒体从业者，长期关注内容创作者的心理状态与职业可持续性。</p>
+          <div class="hgx-creator-data"><span>作品 <b>89</b></span><span>关注 <b>6.1 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="林一舟">了解作者 →</button>
+        </div>
+      </article>
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#3f6b4a,#89b57a)">规</div>
+        <div>
+          <h3>规则观察室</h3>
+          <div class="hgx-creator-field">擅长：平台规则 · 行业观察</div>
+          <p>以条款对比与案例复盘见长，擅长把规则变化讲成普通人听得懂的话。</p>
+          <div class="hgx-creator-data"><span>作品 <b>204</b></span><span>关注 <b>11.7 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="规则观察室">了解作者 →</button>
+        </div>
+      </article>
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#a8542a,#f0b46a)">在</div>
+        <div>
+          <h3>在场记录</h3>
+          <div class="hgx-creator-field">擅长：日常记录 · 人物跟拍</div>
+          <p>坚持用长镜头记录真实工作现场，让被忽略的岗位获得被看见的机会。</p>
+          <div class="hgx-creator-data"><span>作品 <b>67</b></span><span>关注 <b>4.9 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="在场记录">了解作者 →</button>
+        </div>
+      </article>
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#4b3d7a,#9a86c9)">对</div>
+        <div>
+          <h3>对话编辑部</h3>
+          <div class="hgx-creator-field">擅长：多方对谈 · 深度访谈</div>
+          <p>主张「让不同立场同框」，每期邀请 3 至 5 位嘉宾围绕单一议题展开。</p>
+          <div class="hgx-creator-data"><span>作品 <b>112</b></span><span>关注 <b>9.3 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="对话编辑部">了解作者 →</button>
+        </div>
+      </article>
+      <article class="hgx-creator">
+        <div class="hgx-creator-avatar" style="background:linear-gradient(135deg,#2b5a6b,#7fb6c4)">算</div>
+        <div>
+          <h3>算法小组</h3>
+          <div class="hgx-creator-field">擅长：算法科普 · 实用技巧</div>
+          <p>用可视化和实验解释推荐机制，帮助用户理解并主动调整信息环境。</p>
+          <div class="hgx-creator-data"><span>作品 <b>73</b></span><span>关注 <b>5.5 万</b></span></div>
+          <button class="hgx-creator-more" type="button" data-creator="算法小组">了解作者 →</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== feedback ===== -->
+<section class="hgx-section">
+  <div class="hgx-wrap">
+    <div class="hgx-feedback">
+      <div class="hgx-head">
+        <div class="hgx-head-tag">用户声音</div>
+        <h2>他们这样评价这个社区</h2>
+        <p>来自不同身份的用户反馈，语气与关注点各不相同，我们原样收录。</p>
+      </div>
+      <div class="hgx-fb-grid">
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#e2483c">陈</span><div><b>陈默</b><span>内容从业者 · 关注 2 年</span></div></div>
+          <p>最早是被「传播链路还原」系列吸引的。它不急着下判断，而是先把时间线摊开，这种耐心在现在的环境里很少见，也让我在自己的工作里更愿意先核实。</p>
+          <div class="hgx-fb-stars">★★★★★</div>
+        </div>
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#2f4a6b">周</span><div><b>周小满</b><span>大学生 · 关注 8 个月</span></div></div>
+          <p>规则共读计划对我帮助特别大，以前看到条款就跳过，现在知道哪些变化会真正影响我刷到的内容。希望能多出一些适合新手的入门期数。</p>
+          <div class="hgx-fb-stars">★★★★☆</div>
+        </div>
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#3f6b4a">吴</span><div><b>吴嘉树</b><span>独立创作者 · 关注 1 年</span></div></div>
+          <p>作为一个曾被误读的人，看同行对谈那期几乎看哭了。被误解的时候最需要的不是辩解，而是有人愿意把完整的语境放出来。谢谢这个平台做了这件事。</p>
+          <div class="hgx-fb-stars">★★★★★</div>
+        </div>
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#a8542a">郑</span><div><b>郑一然</b><span>产品经理 · 关注 3 年</span></div></div>
+          <p>网站的信息层级做得很清楚，视频、专题、作者档案之间能互相跳转，找资料时省了不少时间。希望搜索能支持按更新年份过滤。</p>
+          <div class="hgx-fb-stars">★★★★☆</div>
+        </div>
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#4b3d7a">许</span><div><b>许知微</b><span>高校教师 · 关注 半年</span></div></div>
+          <p>我把「信息溯源的第一步」推荐给了课堂上的学生。它的价值在于给出可操作的方法，而不是只提供结论，这在教学中特别重要。</p>
+          <div class="hgx-fb-stars">★★★★★</div>
+        </div>
+        <div class="hgx-fb-card">
+          <div class="hgx-fb-user"><span class="hgx-avatar" style="background:#2b5a6b">罗</span><div><b>罗非</b><span>普通用户 · 关注 5 个月</span></div></div>
+          <p>喜欢这里不煽动情绪的表达方式。有时候只是想搞清楚一件事情的来龙去脉，这里能给我一个相对完整的版本，而不是又一段被剪过的片段。</p>
+          <div class="hgx-fb-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== news ===== -->
+<section class="hgx-section" id="news">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">企业动态</div>
+      <h2>官方发布与更新日志</h2>
+      <p>关于品牌、社区与内容的最新进展，均以官方发布为准。</p>
+    </div>
+    <div class="hgx-timeline">
+      <div class="hgx-tl-item">
+        <div class="hgx-tl-date">2026 / 11 / 12</div>
+        <h3>《创作者诚信公约 2026 版》开放签署</h3>
+        <p>公约新增「来源标注」与「更正机制」两项具体条款，面向所有入驻创作者开放，签署后可获得社区诚信标识。</p>
+      </div>
+      <div class="hgx-tl-item">
+        <div class="hgx-tl-date">2026 / 11 / 06</div>
+        <h3>11 月行业观察报告发布：议题投票同步开启</h3>
+        <p>报告围绕内容溯源率、创作者压力与平台规则三个方向，提供数据与案例。用户可就下季度选题参与投票。</p>
+      </div>
+      <div class="hgx-tl-item">
+        <div class="hgx-tl-date">2026 / 10 / 28</div>
+        <h3>内容生态开放日报名通道开启</h3>
+        <p>开放日将邀请创作者、研究者与普通用户面对面讨论，报名表已在官方渠道公布，名额有限。</p>
+      </div>
+      <div class="hgx-tl-item">
+        <div class="hgx-tl-date">2026 / 10 / 15</div>
+        <h3>投稿系统升级：新增素材出处字段</h3>
+        <p>投稿时可对每段素材单独标注来源，编辑团队将据此加快审核，提升内容的可核查性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== partners ===== -->
+<section class="hgx-section">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">合作伙伴</div>
+      <h2>共同推动内容生态向好的伙伴</h2>
+    </div>
+    <div class="hgx-partner-grid">
+      <div class="hgx-partner">媒体观察社</div>
+      <div class="hgx-partner">数字文化研究院</div>
+      <div class="hgx-partner">青年创作者联盟</div>
+      <div class="hgx-partner">影像资料馆</div>
+      <div class="hgx-partner">社区志愿网络</div>
+      <div class="hgx-partner">高校传播学院</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="hgx-section" id="faq">
+  <div class="hgx-wrap">
+    <div class="hgx-head">
+      <div class="hgx-head-tag">帮助中心</div>
+      <h2>常见问题</h2>
+      <p>关于内容、投稿、账号与合作的常见疑问，点击展开查看回答。</p>
+    </div>
+    <div class="hgx-faq">
+      <details>
+        <summary>这个网站主要提供什么内容？</summary>
+        <p>爆料观察站是一个原创视频内容品牌，围绕内容生态、信息传播与创作者话题制作观察类视频与图文。所有内容均由团队或签约创作者原创生产，坚持标注来源、坚持多方呈现。</p>
+      </details>
+      <details>
+        <summary>我想投稿，需要符合哪些要求？</summary>
+        <p>投稿需为原创或已获授权，且对素材标注可查证出处。我们更欢迎有明确时间线与多方视角的选题。审核周期通常为 7 个工作日，通过后会与作者沟通后续制作细节。</p>
+      </details>
+      <details>
+        <summary>内容里的观点代表平台立场吗？</summary>
+        <p>我们的视频会区分「事实陈述」「受访者观点」与「编辑观察」三类内容，并在画面和文案中标注。平台上出现的观点不一定代表品牌立场，但编辑部会为事实核查的准确性负责。</p>
+      </details>
+      <details>
+        <summary>如果发现内容有误，如何反馈？</summary>
+        <p>可以在对应内容下方点击「反馈」提交说明，附上可查证的依据。我们会安排编辑复核，确认有误后在内容页与视频中同步更正，并保留更正记录。</p>
+      </details>
+      <details>
+        <summary>是否支持下载或二次使用视频？</summary>
+        <p>页面内提供的内容默认可用于个人学习与讨论，转载需注明来源并保留原页面信息。商业用途请联系官方渠道获取授权，我们会对引用范围提出具体要求。</p>
+      </details>
+      <details>
+        <summary>如何成为签约创作者或参与共创？</summary>
+        <p>可通过「投稿与联系」入口提交作品集与方向说明。我们关注选题判断力、素材合规意识与长期更新能力，并不以粉丝数量作为唯一标准。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / contact ===== -->
+<section class="hgx-section" id="contact">
+  <div class="hgx-wrap">
+    <div class="hgx-cta">
+      <div>
+        <h2>一起把讨论做得更好</h2>
+        <p>无论你是长期关注内容生态的创作者，还是想认真搞清楚一件事的普通用户，欢迎参与投稿、提供线索或加入共创。我们为每条认真的表达保留位置。</p>
+        <div class="hgx-cta-btns">
+          <button class="hgx-btn hgx-btn-ghost" type="button" id="hgxOpenSubmit">我要投稿 →</button>
+          <button class="hgx-btn hgx-btn-ghost" type="button" id="hgxOpenShare">分享本站 ↗</button>
+        </div>
+      </div>
+      <div class="hgx-cta-info">
+        <div><b>投稿邮箱</b>tougao@baoliaoguancha.example</div>
+        <div><b>合作对接</b>hezuo@baoliaoguancha.example</div>
+        <div><b>工作时间</b>周一至周五 10:00 - 18:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== footer ===== -->
+<footer class="hgx-footer">
+  <div class="hgx-wrap">
+    <div class="hgx-footer-grid">
+      <div>
+        <div class="hgx-footer-logo">
+          <span class="hgx-logo-mark">爆</span>
+          <span class="hgx-logo-text" style="color:#fff">爆料观察站</span>
+        </div>
+        <p>爆料观察站官方网站，一家持续运营的原创视频内容品牌，专注于网络内容生态的观察与解读，以专业、真实、温暖为底色，为创作者与用户搭建值得信赖的讨论社区。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#top">首页</a></li>
+          <li><a href="#focus">焦点内容</a></li>
+          <li><a href="#stream">视频流</a></li>
+          <li><a href="#topic">专题企划</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#essay">品牌解析</a></li>
+          <li><a href="#creator">创作者矩阵</a></li>
+          <li><a href="#news">企业动态</a></li>
+          <li><a href="#faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>参与共建</h4>
+        <ul>
+          <li><a href="#contact">投稿入口</a></li>
+          <li><a href="#contact">合作对接</a></li>
+          <li><a href="#news">官方发布</a></li>
+          <li><a href="#faq">内容反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="hgx-footer-bottom">
+      <span>© 2026 爆料观察站 官方网站 · 版权所有 · 内容均为原创，引用请注明来源</span>
+      <span>持续运营中 · 深耕内容生态 · 用户至上</span>
+    </div>
+  </div>
+</footer>
+
+<button class="hgx-totop" id="hgxToTop" type="button" aria-label="回到顶部">↑</button>
+<div class="hgx-toast" id="hgxToast"></div>
+
+<!-- modal: submit -->
+<div class="hgx-modal" id="hgxModalSubmit">
+  <div class="hgx-modal-box">
+    <button class="hgx-modal-close" type="button" data-close="hgxModalSubmit">✕</button>
+    <h3>投稿信息</h3>
+    <p>请简要描述选题与素材来源，我们会安排编辑尽快联系你。</p>
+    <label for="hgxSubName">称呼</label>
+    <input id="hgxSubName" type="text" placeholder="如何称呼你">
+    <label for="hgxSubTopic">选题方向</label>
+    <input id="hgxSubTopic" type="text" placeholder="例如：信息溯源 / 创作者访谈">
+    <label for="hgxSubDesc">内容说明</label>
+    <textarea id="hgxSubDesc" rows="3" placeholder="简述内容与可查证出处"></textarea>
+    <button class="hgx-btn hgx-btn-primary" type="button" id="hgxSubmitConfirm" style="width:100%;justify-content:center">提交投稿</button>
+  </div>
+</div>
+
+<!-- modal: share -->
+<div class="hgx-modal" id="hgxModalShare">
+  <div class="hgx-modal-box">
+    <button class="hgx-modal-close" type="button" data-close="hgxModalShare">✕</button>
+    <h3>分享本站</h3>
+    <p>选择你常用的渠道，或直接复制页面信息。</p>
+    <div class="hgx-share-row">
+      <button type="button" data-share="微信">微信</button>
+      <button type="button" data-share="微博">微博</button>
+      <button type="button" data-share="QQ">QQ</button>
+      <button type="button" data-share="复制">复制</button>
+    </div>
+    <button class="hgx-btn hgx-btn-ghost" type="button" data-close="hgxModalShare" style="width:100%;justify-content:center">返回</button>
+  </div>
+</div>
+
+<!-- modal: creator -->
+<div class="hgx-modal" id="hgxModalCreator">
+  <div class="hgx-modal-box">
+    <button class="hgx-modal-close" type="button" data-close="hgxModalCreator">✕</button>
+    <h3 id="hgxCreatorName">创作者档案</h3>
+    <p id="hgxCreatorDesc">该创作者长期参与爆料观察站的内容共创，作品以来源可查、视角多元为特色。</p>
+    <button class="hgx-btn hgx-btn-primary" type="button" id="hgxCreatorFollow" style="width:100%;justify-content:center">关注这位创作者</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById('hgxToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- mobile nav ---------- */
+  var burger = document.getElementById('hgxBurger');
+  var nav = document.getElementById('hgxNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); }
+  });
+
+  /* ---------- search ---------- */
+  var searchInput = document.getElementById('hgxSearchInput');
+  var searchBtn = document.getElementById('hgxSearchBtn');
+  var searchTip = document.getElementById('hgxSearchTip');
+  var searchKeys = ['信息溯源','创作者生态','平台规则','日常记录','时间线','对谈','算法'];
+  function doSearch(){
+    var v = searchInput.value.trim();
+    if(!v){
+      searchTip.innerHTML = '试试搜索：<b>' + searchKeys.slice(0,3).join('</b>、<b>') + '</b>';
+      searchTip.classList.add('show');
+      return;
+    }
+    var hit = searchKeys.filter(function(k){ return k.indexOf(v) !== -1 || v.indexOf(k) !== -1; });
+    if(hit.length){
+      searchTip.innerHTML = '找到相关方向：<b>' + hit.join('、') + '</b>，已为你定位到视频流。';
+      document.getElementById('stream').scrollIntoView({behavior:'smooth'});
+    } else {
+      searchTip.innerHTML = '暂未匹配到「' + v + '」，试试：<b>' + searchKeys.slice(0,2).join('</b>、<b>') + '</b>';
+    }
+    searchTip.classList.add('show');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') doSearch(); });
+  searchInput.addEventListener('input', function(){ if(!searchInput.value.trim()) searchTip.classList.remove('show'); });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.hgx-search')) searchTip.classList.remove('show');
+  });
+
+  /* ---------- filter ---------- */
+  var chips = document.querySelectorAll('.hgx-chip');
+  var cards = document.querySelectorAll('#hgxVideoGrid .hgx-video-card');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      var shown = 0;
+      cards.forEach(function(card){
+        var ok = (f === 'all' || card.getAttribute('data-cat') === f);
+        card.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      showToast('已筛选：' + chip.textContent + '（' + shown + ' 条内容）');
+    });
+  });
+
+  /* ---------- like & save ---------- */
+  document.querySelectorAll('.hgx-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var span = btn.querySelector('span');
+      var raw = span.textContent.trim();
+      var num = parseFloat(raw);
+      var unit = raw.replace(/[\d.]/g,'');
+      if(btn.classList.contains('liked')){
+        btn.classList.remove('liked');
+        num = Math.max(0, num - 0.1);
+        span.textContent = (unit === 'k' ? num.toFixed(1) : Math.round(num)) + unit;
+      } else {
+        btn.classList.add('liked');
+        num = num + 0.1;
+        span.textContent = (unit === 'k' ? num.toFixed(1) : Math.round(num)) + unit;
+        showToast('已点赞，感谢支持原创内容');
+      }
+    });
+  });
+  document.querySelectorAll('.hgx-save').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('saved')){
+        btn.classList.remove('saved');
+        btn.textContent = '♡';
+        showToast('已取消收藏');
+      } else {
+        btn.classList.add('saved');
+        btn.textContent = '♥';
+        showToast('已加入收藏');
+      }
+    });
+  });
+
+  /* ---------- modals ---------- */
+  function openModal(id){ document.getElementById(id).classList.add('show'); }
+  function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+  document.querySelectorAll('[data-close]').forEach(function(btn){
+    btn.addEventListener('click', function(){ closeModal(btn.getAttribute('data-close')); });
+  });
+  document.querySelectorAll('.hgx-modal').forEach(function(m){
+    m.addEventListener('click', function(e){ if(e.target === m) m.classList.remove('show'); });
+  });
+
+  document.getElementById('hgxOpenSubmit').addEventListener('click', function(){ openModal('hgxModalSubmit'); });
+  document.getElementById('hgxOpenShare').addEventListener('click', function(){ openModal('hgxModalShare'); });
+
+  document.getElementById('hgxSubmitConfirm').addEventListener('click', function(){
+    var name = document.getElementById('hgxSubName').value.trim();
+    if(!name){ showToast('请先填写称呼'); return; }
+    closeModal('hgxModalSubmit');
+    showToast('投稿已提交，编辑会在 7 个工作日内回复');
+    document.getElementById('hgxSubName').value = '';
+    document.getElementById('hgxSubTopic').value = '';
+    document.getElementById('hgxSubDesc').value = '';
+  });
+
+  document.querySelectorAll('[data-share]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var ch = btn.getAttribute('data-share');
+      if(ch === '复制'){
+        var text = '爆料观察站 · 内容观察与理性解读';
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(function(){
+            showToast('页面信息已复制');
+          }).catch(function(){ showToast('复制失败，请手动选择文字'); });
+        } else {
+          showToast('页面信息已复制');
+        }
+        closeModal('hgxModalShare');
+      } else {
+        showToast('已生成' + ch + '分享提示');
+        closeModal('hgxModalShare');
+      }
+    });
+  });
+
+  /* ---------- creator modal ---------- */
+  var creatorDesc = {
+    '溯源小组':'由三位纪实编辑组成，专注把复杂事件拆成可读的时间线。代表作品：《一条爆料的 72 小时》《原始发布者的三种找法》。',
+    '林一舟':'前媒体从业者，长期关注创作者心理状态与职业可持续性，擅长用长访谈呈现真实处境。',
+    '规则观察室':'以条款对比与案例复盘见长，持续更新《平台规则共读计划》，累计 204 期内容。',
+    '在场记录':'坚持用长镜头记录真实工作现场，作品强调不干预、不摆拍，让被忽略的岗位被看见。',
+    '对话编辑部':'主张让不同立场同框，每期邀请 3 至 5 位嘉宾围绕单一议题展开多轮对谈。',
+    '算法小组':'用可视化和实验解释推荐机制，帮助用户理解并主动调整自己的信息环境。'
+  };
+  var creatorNameEl = document.getElementById('hgxCreatorName');
+  var creatorDescEl = document.getElementById('hgxCreatorDesc');
+  document.querySelectorAll('.hgx-creator-more').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-creator');
+      creatorNameEl.textContent = name + ' · 创作者档案';
+      creatorDescEl.textContent = creatorDesc[name] || '该创作者长期参与内容共创。';
+      var follow = document.getElementById('hgxCreatorFollow');
+      follow.textContent = '关注这位创作者';
+      follow.disabled = false;
+      openModal('hgxModalCreator');
+    });
+  });
+  document.getElementById('hgxCreatorFollow').addEventListener('click', function(){
+    this.textContent = '已关注 ✓';
+    this.disabled = true;
+    showToast('已关注，后续更新会出现在你的订阅中');
+  });
+
+  /* ---------- back to top ---------- */
+  var topBtn = document.getElementById('hgxToTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ topBtn.classList.add('show'); }
+    else { topBtn.classList.remove('show'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- keyword highlight feedback ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var id = a.getAttribute('href');
+      if(id.length > 1 && document.querySelector(id)){
+        showToast('已跳转到：' + a.textContent.trim());
+      }
+    });
+  });
+})();
+</script>
+</body>
+              </html>
